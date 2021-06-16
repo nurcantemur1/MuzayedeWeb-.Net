@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "MuzayedeDetay";
+}
+
+@model WebService.Model.MuzayedeModel
+<div class="container" style="margin-top: 15rem !important;">
+    <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-5">
+
+            <div class="sidebar-categories">
+                <div class="head" style="background-color: crimson">Kategoriler</div>
+                <ul class="main-categories">
+                    @foreach (var kategori in ViewBag.Kategoriler)
+                    {
+                        <li class="main-nav-list"><a href="#">@kategori.KategoriAdi</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-8 col-md-7">
+
+            <!-- Start Best Seller -->
+            <section class="lattest-product-area pb-40 category-list">
+                <div class="row">
+                 
+                    @Model.muzayede.MuzayedeAdi
+                    @foreach (var mUrunleri in Model.muzayedeUrunleri)
+                    {
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-product">
+                                <img class="img-fluid" src="~/karma/img/product/p1.jpg" alt="img">
+                                <div class="product-details">
+
+                                    <h6>
+                                        @mUrunleri.urun.UrunAdi
+                                    </h6>
+                                    <div class="price">
+                                        <h6>@mUrunleri.urun.UrunFiyat</h6>
+                                        <h6 class="l-through">$210.00</h6>
+                                    </div>
+                                    <div class="prd-bottom">
+
+                                        <a href="" class="social-info">
+                                            <span class="ti-bag"></span>
+                                            <p class="hover-text">add to bag</p>
+                                        </a>
+                                        <a href="" class="social-info">
+                                            <span class="lnr lnr-heart"></span>
+                                            <p class="hover-text">Wishlist</p>
+                                        </a>
+                                        <a href="/Product/Delete/@mUrunleri.urun.UrunID" class="social-info">
+                                            <span class="lnr lnr-sync"></span>
+                                            <p class="hover-text">Delete</p>
+                                        </a>
+                                        <a href="" class="social-info">
+                                            <span class="lnr lnr-move"></span>
+                                            <p class="hover-text">view more</p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>}
+
+
+                </div>
+            </section>
+            <!-- End Best Seller -->
+        </div>
+    </div>
+</div>

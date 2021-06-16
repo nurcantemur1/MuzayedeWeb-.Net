@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Urunlerim";
+}
+
+@model List<WebService.DB.Urun>
+
+<br />
+<div class="col-lg-3" style="padding-top: 100px">
+    <div style="padding-left:  40px">
+
+        <ul class="list-group">
+            <li class="list-group-item "><a href="/Kullanici/KullaniciB"><h6>Bilgilerim</h6></a></li>
+            <li class="list-group-item "><a href="/Kullanici/KartBilgileri"><h6>Kart Bilgileri</h6></a></li>
+            <li class="list-group-item " ><a href="/Kullanici/Siparis"><h5>Siparişlerim</h5></a></li>
+            <li class="list-group-item"><a href="/Kullanici/PeyVerilenler"><h6>Pey verdiklerim</h6></a></li>
+            <li class="list-group-item"><a href="/Kullanici/Muzayedelerim"><h6>Muzayedelerim</h6></a></li>
+            <li class="list-group-item active" style="background-color: crimson"><a href="/Kullanici/Urunlerim"><h6>Ürünlerim</h6></a></li>
+            <li class="list-group-item " ><a href="/Kullanici/LogOut"><h6>Çıkış Yap</h6></a></li>
+
+        </ul>
+
+    </div>
+</div>
+
+<div class="container" style="margin-top:10% ">
+    <div class="row">
+        <div class="col">
+
+            <p>
+                <a href="@Url.Action("YeniUrun","Mezat")" type="submit" class="btn-lg btn-danger">Yeni Ürün</a>
+
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        Resim
+                    </th>
+                    <th>
+                        Urun Adı
+                    </th>
+                    <th>
+                        UrunAciklamasi
+                    </th>
+                    <th>
+                        UrunFiyat
+                    </th>
+                    <th>
+                        İşlem
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.urun.Rsim)*@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UrunAdi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UrunAciklamasi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UrunFiyat)
+                        </td>
+                        <td>
+                            <a href="/Mezat/UrunDetay/@item.UrunID" id="detay "type="button" class="btn-lg btn-danger">Urun Detay <i class="far fa-gem ml-1 text-white"></i></a>
+
+                            &nbsp;
+                            <a href="@Url.Action("UrunDelete","Mezat",new {urunid = item.UrunID})" type="button" class="btn-lg btn-danger">Sil <i class="far fa-gem ml-1 text-white"></i></a>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+
+<br/>
+

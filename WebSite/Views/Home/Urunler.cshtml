@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Urunler";
+}
+@model List<WebService.Model.UrunModel>
+
+<div class="col-xl-3 col-lg-4 col-md-5">
+
+    <div class="sidebar-categories">
+        <div class="head" style="background-color: crimson">Kategoriler</div>
+        <ul class="main-categories">
+            @foreach (var kategori in ViewBag.Kategoriler)
+            {
+                <li class="main-nav-list"><a href="#">@kategori.KategoriAdi</a></li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+@foreach (var urunModel in Model)
+{
+    <div class="col-md-3">
+        <div class="single-product">
+            <img class="img-fluid" src="~/karma/img/publicauction.jpg" alt="img">
+            <div class="product-details">
+
+                <h6>
+                    @urunModel.urun.UrunAdi
+                </h6>
+                <div class="price">
+                    <h6>@urunModel.urun.UrunFiyat</h6>
+                </div>
+                <div class="prd-bottom">
+
+                    <a href="" class="social-info">
+                        <span class="ti-bag"></span>
+                        <p class="hover-text">add to bag</p>
+                    </a>
+                    <a href="" class="social-info">
+                        <span class="lnr lnr-heart"></span>
+                        <p class="hover-text">Wishlist</p>
+                    </a>
+                    <a href="/Product/Delete/@urunModel.urun.UrunID" class="social-info">
+                        <span class="lnr lnr-sync"></span>
+                        <p class="hover-text">Delete</p>
+                    </a>
+                    <a href="" class="social-info">
+                        <span class="lnr lnr-move"></span>
+                        <p class="hover-text">view more</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+

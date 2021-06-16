@@ -1,0 +1,95 @@
+﻿<style type="text/css">
+
+    .tum-kenar {
+        padding: 0px;
+        border-radius: 25px;
+        color: white;
+        margin: 20px;
+        border: 2px solid #73AD21;
+    }
+    .nav-link{
+        color: crimson;
+    }
+    
+</style>
+@model WebService.DB.Kullanici
+
+<!-- Start Header Area -->
+<header class="header_area sticky-header">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light main_box">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-collapse logo_h " href="/Home/index"><img src="~/karma/img/publicauction.jpg" width="100" height="100" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-link " ><a href="/Home/index"><span style="color: crimson"><h7>Anasayfa</h7></span></a></li>
+                        &nbsp;
+                        <li class="nav-link "><a href="/Home/Urunler"><span style="color: crimson"><h7>Galeri</h7></span></a></li>
+                        &nbsp;
+                        <li class="nav-link "><a href="/Home/EkspertizFormu"><span style="color: crimson"><h7>Müzayedeler</h7></span></a></>
+                        &nbsp;
+                        <li class="nav-link "><a href="/Home/EkspertizFormu"><span style="color: crimson"><h7>Ekspertiz Formu</h7> </span> </a></li>
+                        &nbsp;
+                        <li class="nav-link "><a href="/Home/Contact"><span style="color: crimson"><h7>İletişim</h7></span></a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-collapse">
+                        <li class="nav-item"><a href="~/karma/#" ><span class="ti-bag"></span></a></li>
+                        <li class="nav-item">
+                            <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+                        </li>
+                        @if (Model == null)
+                        {
+                            <li class="nav-item"><a href="/Home/Login" ><i class="fa fa-user"></i></a></li>
+                        }
+                        else
+                        {
+                    <li class="nav-item active" style="color: crimson">
+                        <div class="dropdown show">
+
+                            <a href="/Home/Login"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> &nbsp; @Model.KullaniciAdi @Model.KullaniciSoyadi</a>
+
+                           
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/Kullanici/KullaniciBilgileri"><h6>Kullanıcı Bilgilerim</h6></a>
+                                <a class="dropdown-item" href="/Kullanici/KartBilgileri"><h6>Kart Bilgilerim</h6></a>
+                                <a class="dropdown-item" href="/Kullanici/Sepet"><h6>Sepetim</h6></a>
+                                <a class="dropdown-item" href="/Kullanici/Siparis"><h6>Siparişlerim</h6></a>
+                                <a class="dropdown-item" href="/Kullanici/PeyVerilenler"><h6>Pey Verdiklerim</h6></a>
+                                <a class="dropdown-item" href="/Kullanici/Muzayedelerim"><h6>Müzayedelerim</h6></a>
+                                <a class="dropdown-item" href="/Kullanici/Urunlerim"><h6>Urunlerim</h6></a>
+                                <a class="dropdown-item" href="/Kullanici/LogOut"><h6>Çıkış Yap</h6></a>
+
+                            </div>
+                        </div>
+
+                    </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="search_input" id="search_input_box">
+        <div class="container">
+            <form class="d-flex justify-content-between">
+                <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+                <button type="submit" class="btn"></button>
+                <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+            </form>
+        </div>
+    </div>
+   
+   
+
+</header>
+<!-- End Header Area -->

@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "EkspertizFormu";
+}
+
+
+
+    &nbsp;
+
+    <div style="padding-left:210px" >
+    <section class="blog_area single-post-area section_gap" >
+    <div class="container" >
+    <div class="row" >
+    <div class="col-lg-10 posts-list" >
+    <div class="comment-form" >
+    <h4 > Ekspertiz Formu</h4 >
+    <form>
+        <div class="form-group form-inline">
+            <div class="form-group col-lg-6 col-md-6 name">
+                <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''"
+                       onblur="this.placeholder = 'Adınız ve Soyadınız'">
+            </div>
+            <div class="form-group col-lg-6 col-md-6 email">
+                <input type="email" class="form-control" id="email" placeholder="Enter email address"
+                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail Adresiniz'">
+            </div>
+        </div>
+
+
+        <p> ~ Görsel boyutlarının her biri en fazla 5 MB olabilir.</p>
+        <p> ~ Dosya uzantıları jpg olmalıdır.</p>
+
+
+
+        <form action="~/karma/gonder.php" method="POST" enctype="multipart/form-data">
+            <div style="padding:10px">
+                <label for="dosya"> Yüklenecek dosyayı seçiniz:</label>
+                <br>
+                <input  type="file" name="dosya" id="">
+            </div>
+            <div>
+                <input class="genric-btn danger" type="submit" value="Yükle">
+            </div>
+        </form>
+        &nbsp;
+
+        <p>
+            Gönder butonuna tıkaldığınızda Kişisel Verilerin Korunması'nı kabul etmiş sayısılırsınız.
+        </p>
+        &nbsp;
+
+        <div class="form-group" style="width:100%">
+            <textarea class="" style="width:100%" rows="5" name="message" placeholder="Messege"
+                      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mesajınız'" required=""> </textarea>
+        </div>
+        &nbsp;
+
+        <a href="#" class="genric-btn danger"> Gönder</a>
+    </form>
+    </div >
+    </div >
+    </div >
+    </div >
+    </section >
+    </div >

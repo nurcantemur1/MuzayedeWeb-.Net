@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "KayitOl";
+}
+
+@model WebSite.Models.KullaniciViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal mt-100">
+        <center> <h2><strong> Üyelik işlemleri</strong></h2></center>
+
+        <p>
+            &nbsp;
+        </p>
+        <div style="padding-left:440px">
+            <form class="row login_form" action="/Home/KayitOl" method="post" id="contactForm" novalidate="novalidate">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.isim, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(m => m.isim, new { htmlAttributes = new { @class = "form-control", @type = "isim", placeholder = "İsim" } })
+                            @Html.ValidationMessageFor(m => m.isim, "", new { @class = "text-danger" })
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.soyisim, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(m => m.soyisim, new { htmlAttributes = new { @class = "form-control", @type = "soyisim", placeholder = "Soyisim" } })
+                            @Html.ValidationMessageFor(m => m.soyisim, "", new { @class = "text-danger" })
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(m => m.email, new { htmlAttributes = new { @class = "form-control", @type = "email", placeholder = "Email" } })
+                            @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.sifre, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(m => m.sifre, new { htmlAttributes = new { @class = "form-control", @type = "password", placeholder = "Password" } })
+                            @Html.ValidationMessageFor(m => m.sifre, "", new { @class = "text-danger" })
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.sifreTekrar, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(m => m.sifreTekrar, new { htmlAttributes = new { @class = "form-control", @type = "password", placeholder = "Password" } })
+                            @Html.ValidationMessageFor(m => m.sifreTekrar, "", new { @class = "text-danger" })
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 align-items-center">
+                    <div style="padding-left:0px">
+                        <div class="form-group">
+
+                            <input type="checkbox" id="f-option2" name="selector">
+                            <label for="f-option2">Müzayede Kuralları, Kullanıcı Sözleşmesi, Gizlilik Politikası ve Kişisel Verilerin Korunması' nı kabul ediyorum .</label>
+
+                        </div>
+                    </div>
+                </div>
+                &nbsp;
+                <div class="align-items-center">
+                    <div style="padding-left:260px">
+                        <div class="form-group">
+                            <button class="genric-btn primary-border e-large" type="submit">Sign Up</button>
+                        </div>
+
+                    </div>
+                    &nbsp;
+                    <div style="padding-left:170px">
+                        <a class="already" href="#">You already have an account? Login here.</a>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+}
+
+
+

@@ -1,0 +1,150 @@
+﻿
+@model WebService.Dto.MUrunleriDto
+
+
+
+<div class="container1">
+    <div class="card " style="width: 800px">
+        <div class="card-body">
+            <div class="card-title">
+                @Model.muzayede.MuzayedeAdi
+            </div>
+
+            <div class="row">
+
+                <div class="col ">
+                    <img class="d-block" style="width: 100%; height: 100%" src="~/karma/img/12123.jpg" alt="Chicago">
+
+                </div>
+                <div class="col">
+                    <p>urunadı @Model.Urundto.UrunAdi</p>
+                    <p>urunadet @Model.Urundto.UrunAdet</p>
+                    <p>urunfiyat @Model.Urundto.UrunFiyat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container1">
+    <div class="card " style="width: 200px">
+
+        <div class="progress mb-2">
+           <script>
+
+                    function update() {
+                        var element = document.getElementById("myprogressBar");
+                        var width = 1;
+                        var identity = setInterval(scene, 20);
+                        function scene() {
+                            if (width >= 100) {
+                                clearInterval(identity);
+                                reset();
+                            } else {
+                                width++;
+                                element.style.width = width + '%';
+                                element.innerHTML = width * 1  + '%';
+                            }
+                        }
+
+                        function  reset(parameters) {
+                          return item.valueOf()+1;
+                        }
+                    }
+                </script>
+            <div class="progress-bar" role="progressbar" id="myprogressBar" style=" background-color: crimson"></div>
+        </div>
+
+        <div class="card-header  ">
+            @Ajax.ActionLink(
+                "Pey Ver",
+                "_SonPey",
+                "Shared",
+                new { murunid = Model.Urundto.UrunID },
+                new AjaxOptions
+                {
+                    
+                    HttpMethod = "POST",
+                    UpdateTargetId = @Model.ID.ToString(),
+                    InsertionMode = InsertionMode.Replace
+                },
+                new { @class = "btn-danger btn-lg", @onclick = "update()" }
+                )
+        </div>
+
+
+        <div class=" col-sm-12">
+            <a href="" data-ajax="true" data-ajax-url="/index/partial" data-ajax-update="@Model.ID"/>
+            <marquee id="@Model.ID" behavior="slide" direction="left">
+            </marquee>
+
+
+        </div>
+    </div>
+</div>
+
+
+@*<div class="container1">
+    <div class="card " style="width: 200px">
+
+        <div class="progress mb-2">
+            <script>
+
+    function update() {
+        var element = document.getElementById("myprogressBar");
+        var width = 1;
+        var identity = setInterval(scene, 20);
+        function scene() {
+            if (width >= 100) {
+                clearInterval(identity);
+                setTimeout();
+            } else {
+                width++;
+                element.style.width = width + '%';
+                element.innerHTML = width * 1 + '%';
+            }
+        }
+        setTimeout(function(){
+                return item.valueOf() + 1;
+            }, 2000);
+
+                }
+            </script>
+            <div class="progress-bar" role="progressbar" id="myprogressBar" style=" background-color: crimson"></div>
+        </div>
+
+        <div class="card-header  ">
+            <form id="form1" runat="server">
+                <asp:ScriptManager ID="ScriptManager1" runat="server" />
+               
+                <input type="submit" value="Pey Ver" class="btn-danger btn-lg" onclick="update()" />
+
+                <asp:Timer runat="server" id="UpdateTimer" interval="1000" ontick="" />
+
+                <asp:UpdatePanel runat="server" id="TimedPanel" updatemode="Conditional">
+
+                    <Triggers>
+
+                        <asp:AsyncPostBackTrigger controlid="UpdateTimer" eventname="Tick" />
+
+                    </Triggers>
+
+                    <ContentTemplate>
+
+                        <marquee id="@Model.ID" behavior="slide" direction="left">
+                        </marquee>
+
+                    </ContentTemplate>
+
+                </asp:UpdatePanel>
+
+            </form>
+        </div>
+        <div class=" col-sm-12">
+
+          
+
+        </div>
+
+    </div>
+</div>*@

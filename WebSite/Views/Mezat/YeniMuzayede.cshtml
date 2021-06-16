@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "YeniMuzayede";
+}
+@model WebService.Model.MuzayedeModel
+
+
+<div class="container" style="margin-top: 10%">
+
+    <h1 style="padding-left: 400px">Müzayede Ürünleri</h1>
+    <div class="row">
+        <div class="col">
+
+            <p>
+                <a href="@Url.Action("UrunListesi", "Mezat")" type="submit" class="btn-lg btn-danger">Ürün Ekle</a>
+
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        Resim
+                    </th>
+                    <th>
+                        Urun Adı
+                    </th>
+                    <th>
+                        UrunAciklamasi
+                    </th>
+                    <th>
+                        UrunFiyat
+                    </th>
+                    <th>
+                        İşlem
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.muzayedeUrunleri)
+                {
+                    <tr>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.urun.Rsim)*@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.urun.UrunAdi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.urun.UrunAciklamasi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.urun.UrunFiyat)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("MurunDelete", "Kullanici", new {murunId = item.ID})">Sil</a>
+                        </td>
+                    </tr>
+                }
+                <a href="@Url.Action("MuzayedeKaydet", "Mezat")"> Kaydet</a>
+
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+

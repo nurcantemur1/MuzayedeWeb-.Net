@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+@model WebSite.Models.KullaniciViewModel
+
+ &nbsp;
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="~/karma/img/login.jpg" alt="">
+                    <div class="hover">
+                        <h4>Müzayede sitemizde yeni misiniz?</h4>
+
+                        <p>Şimdi üye ol ve aramıza katıl.</p>
+                        <a class="primary-btn" href="/Home/KayitOl">Üye Ol</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="login_form_inner">
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                    {
+
+                        <h3>Giriş Yap</h3>
+
+                        <form class="row login_form" action="/Login/Login" method="post" id="contactForm" novalidate="novalidate">
+                            <center>
+                                <div class="col-md-12 form-group">
+
+                                    @Html.TextBoxFor(m => m.email, new { @class = "form-control", placeholder = "Email", @type = "email" })
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    @Html.TextBoxFor(m => m.sifre, new { @class = "form-control", placeholder = "Şifre", @type = "password" })
+                                </div>
+
+                                <div class="col-md-12 form-group">
+                                    <div class="creat_account">
+                                        <input type="checkbox" id="f-option2" name="selector">
+                                        <label for="f-option2">Sifremi kaydet</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 form-group">
+                                    <button type="submit" value="submit" class="primary-btn  facebook-button"> Giriş Yap</button>
+
+                                </div>
+
+                                <div class="center">
+                                    <button class="btn btn-danger  continue facebook-button ">
+                                        <i class="fa fa-facebook ml-2"></i>
+                                        <span class="ml-5 px-4">Continue with facebook</span>
+                                    </button>
+                                    <button class="btn btn-danger  continue google-button ">
+                                        <i class="fa fa-google ml-2"></i> <span class="ml-5 px-4">Continue with Google</span>
+                                    </button>
+
+                                </div>
+                                <p>
+
+                                </p>
+                                <a href="#">Şifremi unuttum</a>
+
+                            </center>
+                        </form>
+
+                    }
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!--================End Login Box Area =================-->

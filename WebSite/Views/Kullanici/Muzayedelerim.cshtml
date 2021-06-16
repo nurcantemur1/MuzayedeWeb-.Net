@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Muzayedelerim";
+
+}
+@model List<WebService.Dto.MuzayedeDto>
+
+<br />
+<div class="col-lg-3" style="padding-top: 100px">
+    <div style="padding-left:  40px">
+
+        <ul class="list-group">
+            <li class="list-group-item  "><a href="/Kullanici/KullaniciB"><h6>Bilgilerim</h6></a></li>
+            <li class="list-group-item "><a href="/Kullanici/Sepet"><h5>Sepetim</h5></a></li>
+            <li class="list-group-item"><a href="/Kullanici/Siparis"><h6>Siparişlerim</h6></a></li>
+            <li class="list-group-item"><a href="/Kullanici/PeyVerilenler"><h6>Pey verdiklerim</h6></a></li>
+            <li class="list-group-item active" style="background-color: crimson"><a href="/Kullanici/Muzayedelerim"><h6>Muzayedelerim</h6></a></li>
+            <li class="list-group-item " ><a href="/Kullanici/Urunlerim"><h6>Ürünlerim</h6></a></li>
+            <li class="list-group-item"><a href="/Kullanici/LogOut"><h6>Çıkış Yap</h6></a></li>
+
+        </ul>
+
+    </div>
+</div>
+
+
+<div style="padding-top:  100px" ,="border-block-color: black">
+    <div class="row  " style="padding-left: 30px">
+        <div class="col-lg-11">
+            <div class="card">
+                <div class="card-body ">
+                    <h4 class="card-title text-center">Müzayedelerim</h4>
+                    <div style="padding-left: 800px">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalDanger">
+                            Müzayede ekle
+                        </button>
+                        <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog modal-notify modal-danger" role="document">
+                                <!--Content-->
+                                <div class="modal-content">
+                                    <!--Header-->
+                                    <div class="modal-header">
+                                        <p class="heading lead">Modal Danger</p>
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true" class="white-text">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <!--Body-->
+                                    <div class="modal-body">
+                                        <div class="text-center">
+                                            <form action="/Mezat/MuzayedeEkle">
+                                                <label style="padding-left: 175px">Müzayede adını giriniz</label>
+                                                <input type="text" name="MuzayedeAdi"  />
+                                                <input type="submit" class="btn-lg btn-danger" value="Oluştur"/>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                               
+                                </div>
+                                <!--/.Content-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-box ">
+                    <input type="text" class="form-control "><i class="fa fa-search "></i>
+                </div>
+                @for (var i = 0; i < @Model.Count; i++)
+                {
+
+
+                    <div class="comment-widgets">
+                        <!-- Comment Row -->
+                        <div class="d-flex flex-row comment-row m-t-0">
+                            <div class="p-2">
+                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583336/AAA/4.jpg" alt="user" width="50" class="rounded-circle">
+                            </div>
+                            <div class="comment-text w-100">
+                                <h6 class="font-medium">@Model[i].MuzayedeAdi</h6>
+                                <span class="text-muted float-right">@Model[i].MTarih.Day/@Model[i].MTarih.Month/@Model[i].MTarih.Year</span>
+                                <span class="m-b-15 d-block">This is awesome website. I would love to comeback again. </span>
+
+
+                                <div style="padding-left: 600px">
+                                    <a href="@Url.Action("MuzayedeDetay","Kullanici", new { muzayedeId = Model[i].MuzayedeID})" type="button1" class="btn-lg btn-danger">Müzayede detay <i class="far fa-gem ml-1 text-white"></i></a>
+                                    &nbsp;
+                                    <a href="@Url.Action("MuzayedeDelete","Mezat",new {mid = Model[i].MuzayedeID})" type="button" class="btn-lg btn-danger">Sil <i class="far fa-gem ml-1 text-white"></i></a>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Card -->
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<br />
+<br />

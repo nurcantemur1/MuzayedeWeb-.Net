@@ -1,0 +1,101 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "CanliMuzayede";
+}
+
+@model  WebService.Model.CanliMuzaedeModel
+
+<style>
+    .container1 {
+        display: inline-block;
+        padding-left: 100px;
+        padding-top: 250px;
+    }
+</style>
+
+<div class="container1">
+    <div class="card " style="width: 800px">
+        <div class="card-body">
+            <div class="card-title">
+                @Model.muzayede.MuzayedeAdi
+            </div>
+
+            <div class="row">
+
+                <div class="col ">
+                    <img class="d-block" style="width: 100%; height: 100%" src="~/karma/img/12123.jpg" alt="Chicago">
+
+                </div>
+                <div class="col">
+                    <p>urunadı @Model.murun.urun.UrunAdi</p>
+                    <p>urunadet @Model.murun.urun.UrunAdet</p>
+                    <p>urunfiyat @Model.murun.urun.UrunFiyat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container1">
+    <div class="card " style="width: 200px">
+
+        <div class="progress mb-2">
+            <script>
+
+                function update() {
+                    var element = document.getElementById("myprogressBar");
+                    var width = 1;
+                    var identity = setInterval(scene, 20);
+                    function scene() {
+                        if (width >= 100) {
+                            clearInterval(identity);
+                            reset();
+                        } else {
+                            width++;
+                            element.style.width = width + '%';
+                            element.innerHTML = width * 1 + '%';
+                        }
+                    }
+
+                    function reset(parameters) {
+                        return item.valueOf() + 1;
+                    }
+                }
+            </script>
+            <div class="progress-bar" role="progressbar" id="myprogressBar" style=" background-color: crimson"></div>
+        </div>
+
+        <div class="card-header  ">
+            @Ajax.ActionLink(
+                "Pey Ver",
+                "_SonPey",
+                "Shared",
+                new { murunid = Model.murun.ID },
+                new AjaxOptions
+                {
+
+                    HttpMethod = "POST",
+                    UpdateTargetId = "pey",
+                    InsertionMode = InsertionMode.Replace
+                },
+                new { @class = "btn-danger btn-lg", @onclick = "" }
+                )
+        </div>
+
+
+        <div class=" col-sm-12">
+            <marquee id="pey" behavior="slide" direction="left">
+            </marquee>
+
+
+        </div>
+    </div>
+</div>
+<a href="@Url.Action("CanliMuzayede","Mezat", new {muzayedeId = Model.muzayede.MuzayedeID , murunId = Model.murun.ID})" class="btn-danger">Sonraki</a>
+
+
+&nbsp;
+<br />
+<br />
+<br />
